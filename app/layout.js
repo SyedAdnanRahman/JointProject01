@@ -1,13 +1,25 @@
-import { inter } from "next/font/google";
+import { Geist, Geist_Mono, inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({subset: ["latin"]}) 
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata = {
   title: "Sensai - Career coach",
   description: "Adnan and Ifty",
+
 };
 
 export default function RootLayout({ children }) {
@@ -15,7 +27,8 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${inter.className}`}
+                    className={`${inter.className}`}
+
         >
           <ThemeProvider
             attribute="class"
