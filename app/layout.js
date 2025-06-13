@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header";
@@ -6,15 +6,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({subset: ["latin"]}) 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Sensai - Career coach",
