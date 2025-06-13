@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ChevronDown, FileText, LayoutDashboard, StarsIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Button } from './ui/button';
-import { LayoutDashboard } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
+import { PenBox } from 'lucide-react';
 
 import {
   DropdownMenu,
