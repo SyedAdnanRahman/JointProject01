@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
 import { useEffect, useRef } from "react"
 import { Image } from "lucide-react";
+
  
  
 
@@ -17,9 +18,12 @@ const HeroSection = () => {
       const scrollThreshold = 100;
       if (scrollPosition > scrollThreshold) {
          imageElement.classList.add('scrolled');
+      } else {
+        imageElement.classList.remove("scrolled");
       }
     }
     window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [])
   
     return(
