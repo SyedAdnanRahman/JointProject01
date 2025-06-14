@@ -2,13 +2,27 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef } from "react"
 import { Image } from "lucide-react";
-import { useEffect, useref } from "react"
+ 
+ 
 
 const HeroSection = () => {
   const imageRef = useRef(null);
 
-  useEffect()
+  useEffect(() => {
+    const imageElement = imageRef
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const scrollThreshold = 100;
+      if (scrollPosition > scrollThreshold) {
+         imageElement.classList.add('scrolled');
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+  }, [])
+  
     return(
     <section className="w-full pt-36 md:pt-48 pb-10">
 
