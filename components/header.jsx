@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ChevronDown, FileText, LayoutDashboard, StarsIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Button } from './ui/button';
-import { LayoutDashboard } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
+import { PenBox } from 'lucide-react';
 
 import {
   DropdownMenu,
@@ -30,21 +30,21 @@ const Header = () => {
             <div className="flex items-center space-x-2 md:space-x-4">
                 <SignedIn>
                     <Link href="/dashboard">
-                        <Button>
+                        <Button variant={"outline"}>
                             <LayoutDashboard className=" h-4 w-4" />
                             <span className='hidden md:block'>Industry Insights</span>
                             
                         </Button>
                     </Link>
 
-                </SignedIn>
+               
 
                     <DropdownMenu>
           <DropdownMenuTrigger  asChild>
             <Button>
               <StarsIcon className="h-4 w-4" />
               <span className='hidden md:block'> Growth Tools </span>
-              <ChevronDown className=" h-4 w-4" />
+              <ChevronDown className=" h-4 w-4 " />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>  
@@ -57,28 +57,49 @@ const Header = () => {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href="/growth-tools/cover-letter">Cover Letter</Link>
+              <Link href="/ai-cover-letter"
+              className='flex items-center gap-2'
+              >
+                <PenBox className="h-4 w-4" />
+                <span className='hidden md:block'> AI Cover Letter </span>
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <Link href="/growth-tools/team">Team</Link>
+              <Link href="/interview" className='flex items-center gap-2'>
+                <GraduationCap className="h-4 w-4" />
+                <span className='hidden md:block'> Interview Prep </span>
+              </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/growth-tools/subscription">Subscription</Link>
-            </DropdownMenuItem>
+
           </DropdownMenuContent>
           </DropdownMenu>
+       </SignedIn>
+                <SignedOut>
+        <SignInButton>
+          <Button variant={"outline"} >
+            Sign In
+          </Button>
+        </SignInButton>
+      
+      </SignedOut>
+      <SignedIn>
+        <UserButton
+          appearance={{
+            elements: {
+              avatarBox: "h-10 w-10",
+              userButtonPopoverCard: "shadow-xl",
+              userPreviewMainIdentifier:"font-semibold ",
+            },
+          }}
+
+        />
+      </SignedIn>
 
             </div>
 
         </nav>
 
-      <SignedOut>
-        <SignInButton mode="modal" />
-        <SignUpButton mode="modal" />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+
        </header>
 
   );
