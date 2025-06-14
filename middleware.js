@@ -1,18 +1,16 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher} from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 
 
 
 
 
-const isProtectedRoute = createRouteMatcher => {
-  return createRouteMatcher([
+const isProtectedRoute = createRouteMatcher([
     '/dashboard(.*)',
     '/resume(.*)',
     '/ai-cover-letter(.*)',
     '/ai-job-description(.*)'
   ]);
-};
 
  
 export default clerkMiddleware(async (auth,req) => {
@@ -32,9 +30,12 @@ export default clerkMiddleware(async (auth,req) => {
 
 export const config = {
   matcher: [
-    // Skip static files and Next.js internals
-    '/((?!_next|.*\\..*|favicon.ico).*)',
+    // Skip Next.js internals and all static files, unless found in search params
+        // Skip Next.js internals and all static files, unless found in search params
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
     // Run for API routes
     '/(api|trpc)(.*)',
+
+    
   ],
 };
