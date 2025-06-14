@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
 import image from "next/image";
+import { Image } from "lucide-react";
 import { useEffect, useref } from "react"
 
 const HeroSection = () => {
