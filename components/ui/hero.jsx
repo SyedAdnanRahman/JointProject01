@@ -2,10 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
- 
-import Image from "next/image";
 import { useEffect, useRef } from "react"
- 
 import { Image } from "lucide-react";
 
  
