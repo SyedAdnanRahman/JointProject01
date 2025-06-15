@@ -18,6 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <div>
     <ClerkProvider appearance={{
       baseTheme: dark
     }}>
@@ -47,5 +48,6 @@ export default function RootLayout({ children }) {
         </body>
       </html>
     </ClerkProvider>
+    </div>
   );
 }
